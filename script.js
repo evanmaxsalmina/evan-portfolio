@@ -173,7 +173,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Clean and responsive UI design',
                 'BLoC pattern for efficient state management'
             ]
-        }
+        },
+        'object-analyst': {
+            title: 'AI Object Identify',
+            image: 'assets/images/aidentf.png',
+            tags: ['Flutter', 'Dart', 'Gemini API', 'Google Generative AI', 'Mobile App'],
+            overview: 'Object Analyst turns any image into a detailed technical breakdown. Simply capture a photo or upload from your gallery, and our AI will instantly identify the object, explaining its function, materials, and context in a professional report.',
+            features: [
+                'Instant AI-powered object identification using Gemini 2.5 Flash',
+                'Generates professional technical reports (Function, Specs, Context)',
+                'Modern Industrial UI with high-contrast monospace typography',
+                'Seamless Dual Theme support (Dark & Light Mode)',
+                'Immersive Edge-to-Edge display with transparent system bars',
+                'Dual input support: Camera capture and Gallery upload',
+                'Markdown rendering for structured and readable output',
+                'Optimized image compression for fast performance'
+            ]
+        },
     };
 
     if (seeDetailsButtons) {

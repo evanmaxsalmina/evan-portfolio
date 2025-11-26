@@ -1,5 +1,3 @@
-/* All Projects Page Specific Styles */
-
 .back-nav {
     position: fixed;
     top: 2rem;
@@ -37,7 +35,7 @@
 
 .all-projects-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .all-projects-header h1 {
@@ -60,19 +58,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    margin-bottom: 6rem;
-    padding: 3rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     transition: all 0.3s ease;
-}
-
-.full-project-item:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(0, 212, 255, 0.2);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
 }
 
 .full-project-item.reverse {
@@ -94,7 +85,7 @@
 }
 
 .full-project-item:hover .full-project-image img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .full-project-content {
@@ -105,45 +96,38 @@
     font-size: 2.5rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .full-project-content .project-creator {
     font-size: 1rem;
     color: #666;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .full-project-content .project-description {
     font-size: 1.15rem;
     color: #aaa;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.project-features {
-    margin-top: 2rem;
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
 }
 
-.project-features h3 {
-    font-size: 1.3rem;
+.tag {
+    background: rgba(0, 212, 255, 0.1);
     color: #00d4ff;
-    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-.project-features ul {
-    list-style: none;
-    padding: 0;
-}
-
-.project-features ul li {
-    font-size: 1.05rem;
-    color: #ccc;
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
-}
-
-/* Responsive */
 @media (max-width: 968px) {
     .all-projects-header h1 {
         font-size: 3rem;
@@ -153,7 +137,13 @@
     .full-project-item.reverse {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 2rem;
+        padding: 0;
+        margin-bottom: 4rem;
+    }
+
+    .full-project-item.reverse {
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .full-project-content h2 {
@@ -177,11 +167,6 @@
 
     .all-projects-header p {
         font-size: 1.1rem;
-    }
-
-    .full-project-item {
-        padding: 1.5rem;
-        margin-bottom: 4rem;
     }
 
     .full-project-content h2 {
