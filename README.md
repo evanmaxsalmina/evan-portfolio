@@ -1,7 +1,6 @@
 # 👨‍💻 Evan - Personal Portfolio
 
-![Portfolio Preview](<img width="1920" height="1440" alt="web-porto-evan" src="https://github.com/user-attachments/assets/976e7648-15e2-4307-b335-29f2f4145fc1" />
-)
+![Portfolio Preview](<img src="https://github.com/user-attachments/assets/976e7648-15e2-4307-b335-29f2f4145fc1" alt="web-porto-evan" width="100%" />)
 > **Live Demo:** [https://evan-portfolio-w.netlify.app](https://evan-portfolio-w.netlify.app)
 
 ## 📖 Tentang Project
@@ -42,7 +41,7 @@ Kamu bisa menjalankan project ini di komputer lokal dengan sangat mudah:
 
 1.  **Clone repositori:**
 
-    git clone [https://github.com/username-evan/portfolio.git](https://github.com/username-evan/portfolio.git)
+    git clone [https://github.com/evanmaxsalmina/evan-portfolio.git](https://github.com/evanmaxsalmina/evan-portfolio.git)
     
 
 2.  **Buka Folder:**
