@@ -60,11 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (wrapper && indicator) {
             const wrapperRect = wrapper.getBoundingClientRect();
-            const left = linkRect.left - wrapperRect.left;
+            
+            const left = linkRect.left - wrapperRect.left - 1; 
+            
             const width = linkRect.width;
             
-            indicator.style.transform = `translateY(-50%) translateX(${left}px)`;
-            indicator.style.left = '0';
+            indicator.style.transform = `translateX(${left}px)`;
             indicator.style.width = width + 'px';
         }
     }
@@ -276,21 +277,27 @@ document.addEventListener('DOMContentLoaded', function() {
             
             moveFilterIndicator(this);
             
+            let delay = 0;
+            const delayStep = 50; 
+
             skillItems.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
+                const isMatch = category === 'all' || itemCategory === category;
+
+                item.classList.remove('fade-enter', 'fade-enter-active');
                 
-                if (category === 'all' || itemCategory === category) {
-                    item.style.display = 'flex';
+                if (isMatch) {
+                    item.classList.remove('hidden');
+                    item.classList.add('fade-enter');
+                    
                     setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1) translateX(0)';
-                    }, 10);
+                        item.classList.add('fade-enter-active');
+                        item.classList.remove('fade-enter');
+                    }, delay);
+                    
+                    delay += delayStep;
                 } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.9) translateX(-20px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
+                    item.classList.add('hidden');
                 }
             });
         });
