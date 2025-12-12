@@ -65,9 +65,10 @@ input[type="submit"],
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -104,6 +105,7 @@ input[type="submit"],
   left: 50%;
   transform: translateX(-50%);
   align-items: center;
+  z-index: 100;
 }
 
 .nav-menu {
@@ -124,7 +126,8 @@ input[type="submit"],
   height: auto;
   background: #ffffff;
   border-radius: 14px;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   z-index: 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -152,22 +155,56 @@ input[type="submit"],
 }
 
 .nav-cv-btn {
-  color: #00d4ff;
-  text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid #00d4ff;
-  border-radius: 18px;
+  padding: 0.6rem 1.4rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
   transition: all 0.3s ease;
   white-space: nowrap;
-  display: inline-block;
+  position: relative;
+  z-index: 101;
+  box-shadow: none;
 }
 
 .nav-cv-btn:hover {
-  background: rgba(0, 212, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+/* .nav-cv-btn::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #ffffff;
+  transition: transform 0.3s ease;
+} */
+
+.nav-cv-btn svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.nav-cv-btn:hover svg {
+  transform: translateY(2px);
+}
+
+.nav-cv-btn:hover::after {
+  transform: translateY(2px);
 }
 
 .nav-toggle {
@@ -585,7 +622,7 @@ input[type="submit"],
 #projects {
   position: relative;
   overflow: hidden;
-  padding-bottom: 4rem; 
+  padding-bottom: 4rem;
 }
 
 #projects::before,
@@ -660,8 +697,8 @@ input[type="submit"],
   position: relative;
   transition: all 0.4s ease;
   border: 1px solid rgba(0, 212, 255, 0.3);
-  box-shadow: 
-    0 0 0 6px #1a1a1a, 
+  box-shadow:
+    0 0 0 6px #1a1a1a,
     0 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
@@ -683,9 +720,9 @@ input[type="submit"],
 .project-card:hover {
   transform: translateY(-10px);
   border-color: rgba(0, 212, 255, 0.8);
-  
-  box-shadow: 
-    0 0 0 6px #1a1a1a, 
+
+  box-shadow:
+    0 0 0 6px #1a1a1a,
     0 0 0 9px rgba(0, 212, 255, 0.6),
     0 20px 50px rgba(0, 212, 255, 0.25);
 }
@@ -696,7 +733,7 @@ input[type="submit"],
 
 .project-image {
   width: 100%;
-  height: 230px; 
+  height: 230px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -711,7 +748,7 @@ input[type="submit"],
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
@@ -928,7 +965,7 @@ input[type="submit"],
   overflow: hidden;
   margin-bottom: 2.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .modal-image img {
@@ -956,12 +993,12 @@ input[type="submit"],
 }
 
 .modal-section h3::before {
-    content: '';
-    display: block;
-    width: 4px;
-    height: 24px;
-    background: linear-gradient(to bottom, #00d4ff, #0099ff);
-    border-radius: 4px;
+  content: '';
+  display: block;
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(to bottom, #00d4ff, #0099ff);
+  border-radius: 4px;
 }
 
 .modal-section p {
@@ -1719,6 +1756,8 @@ input[type="submit"],
 }
 
 @media (max-width: 640px) {
+
+  /* --- 1. BAGIAN TEXT TYPING & DESKRIPSI (Tetap) --- */
   .description .typing-text {
     animation: none;
     border-right: none;
@@ -1734,42 +1773,107 @@ input[type="submit"],
 
   .description {
     padding: 0 1rem;
+    font-size: 1.2rem;
   }
 
+  /* --- 2. BAGIAN SKILLS FILTER (Clean Look / Tanpa Kotak Gede) --- */
   .skills-filter {
     flex-wrap: wrap;
     width: 100%;
+    /* Hapus background container besar */
     background: transparent;
     backdrop-filter: none;
-    -webkit-backdrop-filter: none;
     border: none;
     padding: 0;
+    margin: 0 auto 3rem auto;
     gap: 10px;
+    /* Jarak antar tombol */
+    justify-content: center;
     border-radius: 0;
   }
 
   .filter-indicator {
     display: none;
+    /* Hide slide effect di mobile */
   }
 
   .filter-btn {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    /* Ukuran tombol menyesuaikan teks */
     width: auto;
+
+    /* Desain tombol satuan (Pill) */
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50px;
-    margin: 0;
     padding: 0.6rem 1.2rem;
-    color: #999;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin: 0;
   }
 
   .filter-btn.active {
-    background: linear-gradient(135deg, #00d4ff, #0099ff);
-    color: #fff;
-    border-color: transparent;
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+    /* Tombol aktif jadi putih terang */
+    background: #ffffff;
+    color: #1a1a1a;
+    border-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    font-weight: 600;
   }
 
+  /* --- 3. BAGIAN SKILLS GRID (2 Kolom, Tanpa Kotak) --- */
+  .skills-grid {
+    display: grid;
+    /* Tetap 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    left: 0;
+    padding: 0 1rem;
+    /* Jarak vertikal agak jauh biar icon ga numpuk, horizontal dekat */
+    gap: 2.5rem 1rem;
+  }
+
+  .skill-item {
+    /* Reset background & border (biar transparan kyk semula) */
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    /* Susunan Vertikal: Icon atas, Teks bawah */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    /* Pastikan terlihat */
+  }
+
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    padding: 14px;
+    margin-bottom: 0.8rem;
+    /* Jarak antara icon dan teks */
+    /* Opsional: Sedikit glow di icon biar pop-up */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  }
+
+  .skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .skill-info h3 {
+    font-size: 0.9rem;
+    color: #ddd;
+    /* Warna teks agak soft */
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* --- 4. PENYESUAIAN FONT & LAYOUT LAINNYA (Tetap) --- */
   .name {
     font-size: 2.5rem;
   }
@@ -1778,20 +1882,8 @@ input[type="submit"],
     font-size: 1.5rem;
   }
 
-  .description {
-    font-size: 1.2rem;
-  }
-
   .section-title {
     font-size: 2.5rem;
-  }
-
-  .milestone-title {
-    font-size: 1.2rem;
-  }
-
-  .experience-title {
-    font-size: 1.8rem;
   }
 
   .projects-title {
@@ -1805,13 +1897,13 @@ input[type="submit"],
   }
 
   .project-card {
-     box-shadow: 
-      0 0 0 4px #1a1a1a, 
+    box-shadow:
+      0 0 0 4px #1a1a1a,
       0 0 0 5px rgba(255, 255, 255, 0.1);
   }
 
   .project-image {
-      height: 200px;
+    height: 200px;
   }
 
   .nav-link {
@@ -1823,45 +1915,6 @@ input[type="submit"],
     font-size: 2.5rem;
   }
 
-  .filter-btn {
-    font-size: 0.85rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-    width: 100%;
-    left: 0;
-    padding: 0 2rem;
-    gap: 2rem;
-  }
-
-  .skill-item {
-    padding-left: 0;
-    justify-content: center;
-  }
-
-  .skills-filter {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .skill-icon {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    padding: 10px;
-  }
-
-  .skill-icon img {
-    max-width: 30px;
-    max-height: 30px;
-  }
-
-  .skill-info h3 {
-    font-size: 1.1rem;
-  }
-
   .milestone-tags {
     gap: 0.6rem;
   }
@@ -1871,28 +1924,27 @@ input[type="submit"],
     padding: 0.4rem 1rem;
   }
 
+  .milestone-title {
+    font-size: 1.2rem;
+  }
+
+  .experience-title {
+    font-size: 1.8rem;
+  }
+
   .greeting,
   .name {
     font-size: 2.2rem;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .skill-item {
-    justify-content: flex-start;
-  }
-
   .modal-content {
     border-radius: 20px 20px 0 0;
   }
-  
+
   .modal-scroll {
     padding: 1.5rem;
   }
-  
+
   .modal-title {
     font-size: 1.8rem;
   }
