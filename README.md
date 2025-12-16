@@ -1,7 +1,7 @@
 # 👨‍💻 Evan - Personal Portfolio
 
 ![Portfolio Evan](https://github.com/user-attachments/assets/976e7648-15e2-4307-b335-29f2f4145fc1)
-> **Live Demo:** [https://evan-portfolio-w.netlify.app](https://evan-portfolio-w.netlify.app)
+> **Live Demo:** [https://evanmaxsal.web.app](https://evanmaxsal.web.app)
 
 ## 📖 Tentang Project
 
